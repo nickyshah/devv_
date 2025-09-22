@@ -1,3 +1,5 @@
+"use client";
+
 import { CheckCircle, Users, Clock, Award } from "lucide-react";
 
 const About = () => {
