@@ -1,24 +1,24 @@
 "use client";
 
 import { CheckCircle, Users, Clock, Award } from "lucide-react";
+import { useAdmin } from '@/contexts/AdminContext';
 
 const About = () => {
-  const highlights = [
-    { icon: Users, title: "50+ Happy Clients", description: "Delivered successful projects for businesses worldwide" },
-    { icon: Clock, title: "5+ Years Experience", description: "Expertise in modern web technologies and frameworks" },
-    { icon: Award, title: "Quality Guaranteed", description: "100% satisfaction rate with all delivered projects" }
-  ];
+  const { profile } = useAdmin();
+  
+  // Icon mapping for dynamic highlights
+  const iconMap = {
+    Users,
+    Clock,
+    Award
+  };
 
-  const skills = [
-    "React & Next.js Development",
-    "Full-Stack Web Applications",
-    "E-commerce Solutions",
-    "Responsive Design",
-    "Database Integration",
-    "API Development",
-    "Performance Optimization",
-    "SEO Implementation"
-  ];
+  const highlights = profile.highlights.map(highlight => ({
+    ...highlight,
+    icon: iconMap[highlight.icon as keyof typeof iconMap] || Users
+  }));
+
+  const skills = profile.skills;
 
   return (
     <section id="about" className="section-padding bg-gradient-subtle">
@@ -27,13 +27,13 @@ const About = () => {
           <div>
             <div className="inline-flex items-center px-4 py-2 bg-brand-blue/10 rounded-full text-brand-blue font-medium mb-6">About Me</div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Building digital solutions that make a <span className="text-gradient">difference</span>
+              {profile.name} - <span className="text-gradient">{profile.title}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              I'm a passionate software developer with over 5 years of experience creating custom web solutions for businesses of all sizes. What sets me apart is my commitment to understanding your unique needs and translating them into powerful, user-friendly websites.
+              {profile.description}
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              I specialize in modern web technologies and focus on delivering clean, maintainable code that performs beautifully across all devices. Every project is an opportunity to exceed expectations and build long-lasting partnerships.
+              With {profile.experience} in the industry, I specialize in modern web technologies and focus on delivering clean, maintainable code that performs beautifully across all devices. Every project is an opportunity to exceed expectations and build long-lasting partnerships.
             </p>
             <div className="grid grid-cols-2 gap-3 mb-8">
               {skills.map((skill, index) => (

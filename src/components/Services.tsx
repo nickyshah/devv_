@@ -13,10 +13,10 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding">
+    <section id="services" className="section-padding bg-gradient-subtle">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-brand-indigo/10 rounded-full text-brand-indigo font-medium mb-6">Services Offered</div>
+          <div className="inline-flex items-center px-4 py-2 bg-brand-blue/10 rounded-full text-brand-blue font-medium mb-6">Services Offered</div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 max-w-3xl mx-auto">
             Everything you need to build a <span className="text-gradient">successful online presence</span>
           </h2>

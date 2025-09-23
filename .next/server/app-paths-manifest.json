@@ -1,7 +1,12 @@
 {
+  "/page": "app/page.js",
+  "/admin/testimonials/page": "app/admin/testimonials/page.js",
+  "/admin/services/page": "app/admin/services/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/dashboard/page": "app/admin/dashboard/page.js",
   "/about/page": "app/about/page.js",
   "/services/page": "app/services/page.js",
-  "/contact/page": "app/contact/page.js",
+  "/portfolio/page": "app/portfolio/page.js",
   "/testimonials/page": "app/testimonials/page.js",
-  "/portfolio/page": "app/portfolio/page.js"
+  "/contact/page": "app/contact/page.js"
 }
