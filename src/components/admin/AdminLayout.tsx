@@ -49,7 +49,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex min-h-screen bg-background">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div
@@ -59,10 +59,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border shadow-large transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border shadow-large transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:relative lg:flex lg:flex-col ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } lg:static lg:inset-0`}>
-        <div className="flex items-center justify-between h-16 px-6 border-b border-border">
+      }`}>
+        <div className="flex items-center justify-between h-16 px-6 border-b border-border flex-shrink-0">
           <Link href="/admin/dashboard" className="text-xl font-bold text-gradient">
             Admin Panel
           </Link>
@@ -74,7 +74,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           </button>
         </div>
 
-        <nav className="mt-6 px-3">
+        <nav className="flex-1 mt-6 px-3 overflow-y-auto">
           <div className="space-y-1">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
@@ -102,7 +102,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           </div>
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border">
+        <div className="p-4 border-t border-border flex-shrink-0">
           <Button
             onClick={handleLogout}
             variant="outline"
@@ -115,9 +115,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       </div>
 
       {/* Main content */}
-      <div className="lg:ml-64">
+      <div className="flex-1 flex flex-col lg:ml-0">
         {/* Top header */}
-        <header className="bg-card/50 backdrop-blur-sm shadow-subtle border-b border-border">
+        <header className="bg-card/50 backdrop-blur-sm shadow-subtle border-b border-border flex-shrink-0">
           <div className="flex items-center justify-between h-16 px-6">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -143,7 +143,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         </header>
 
         {/* Page content */}
-        <main className="p-6 bg-gradient-subtle min-h-screen">
+        <main className="flex-1 p-6 bg-gradient-subtle overflow-y-auto">
           {children}
         </main>
       </div>

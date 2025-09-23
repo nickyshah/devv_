@@ -1650,6 +1650,9 @@ video {
 .pt-4 {
   padding-top: 1rem;
 }
+.pb-4 {
+  padding-bottom: 1rem;
+}
 .text-left {
   text-align: left;
 }
@@ -2384,6 +2387,10 @@ All colors MUST be HSL.
     position: static;
   }
 
+  .lg\:relative {
+    position: relative;
+  }
+
   .lg\:inset-0 {
     inset: 0px;
   }
@@ -2394,6 +2401,14 @@ All colors MUST be HSL.
 
   .lg\:ml-64 {
     margin-left: 16rem;
+  }
+
+  .lg\:ml-0 {
+    margin-left: 0px;
+  }
+
+  .lg\:flex {
+    display: flex;
   }
 
   .lg\:hidden {
@@ -2419,6 +2434,10 @@ All colors MUST be HSL.
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:flex-col {
+    flex-direction: column;
   }
 }
 
